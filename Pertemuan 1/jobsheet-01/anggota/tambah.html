@@ -2,33 +2,34 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>SIMPUS-Mini | Daftar Anggota</title>
+    <title>SIMPUS-Mini | Tambah Anggota</title>
+    <link rel="stylesheet" href="../../../assets/css/style.css">
 </head>
 <body>
     <header>
         <h1>SIMPUS-Mini</h1>
         <nav>
             <ul>
-                <li><a href="../indexhtml">Beranda</a></li>
-                <li><a href="list.html">Daftar Buku</a></li>
-                <li><a href="tambah.html">Daftar Anggota</a></li>
-                <li><a href="../anggota/list.html">Tambah Anggota</a></li>
+                <li><a href="../../index.html">Beranda</a></li>
+                <li><a href="../buku/list.html">Daftar Buku</a></li>
+                <li><a href="list.html">Daftar Anggota</a></li>
+                <li><a href="tambah.html">Tambah Anggota</a></li>
             </ul>
         </nav>
     </header>
-    
+
     <main>
         <section>
             <span>* (wajib diisi)</span>
             <h2>Tambah Anggota</h2>
-            <from method="POST" action="">
+            <form method="POST" action="">
                 <p>
                     <label for="nama">Nama</label><br>
                     <input type="text" id="nama" name="nama_lengkap" required>
                 </p>
                 <p>
                     <label for="email">Email</label><br>
-                    <input type="email" id="nama" name="nama" required>
+                    <input type="email" id="email" name="email" required>
                 </p>
                 <p>
                     <label for="no_anggota">No. Anggota</label><br>
@@ -36,12 +37,11 @@
                 </p>
                 <p>
                     <label for="tanggal_lahir">Tanggal Lahir</label><br>
-                    <input type="datetime-local" value="dd/mm/yyyy hh:mm:ss" id="tanggal_lahir" name="tanggal_lahir" required>
+                    <input type="date" id="tanggal_lahir" name="tanggal_lahir" required>
                 </p>
                 <p>
                     <label for="alamat">Alamat</label><br>
-                    <textarea id="alamat" rows="10" cols="30" name="alamat"></textarea>
-                    <input type="text" id="alamat" name="alamat" required>
+                    <textarea id="alamat" rows="5" cols="30" name="alamat" required></textarea>
                 </p>
                 <p>
                     <label for="no_hp">No. hp</label><br>
@@ -50,7 +50,8 @@
                 <p>
                     <button type="submit">Simpan</button>
                 </p>
-            </from>
+            </form>
+        </section>
     </main>
 
     <footer>
