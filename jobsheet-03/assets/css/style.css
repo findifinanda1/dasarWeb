@@ -232,3 +232,13 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+.code-responsive {
+    overflow-x: auto;
+    white-space: pre;
+}
+
+.code-responsive pre{
+    white-space: pre;
+    word-wrap: normal;
+}
