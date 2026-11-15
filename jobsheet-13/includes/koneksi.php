@@ -8,12 +8,12 @@ $sslmode = getenv('DB_SSLMODE') ?: 'prefer';
 
 try {
     $pdo = new PDO(
-        "pgsql:host={$config['db_host']};port={$config['db_port']};dbname={$config['db_name']};sslmode={$sslmode};connect_timeout=2",
+        "pgsql:host={$config['db_host']};port={$config['db_port']};dbname={$config['db_name']};sslmode={$sslmode};connect_timeout=5",
         $config['db_user'],
         $config['db_pass'],
         [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_TIMEOUT => 2,
+            PDO::ATTR_ERRMODE    => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_PERSISTENT => true,
         ]
     );
 } catch (PDOException $e) {
