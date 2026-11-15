@@ -79,7 +79,7 @@ $totalPages = max(1, (int) ceil($totalRows / $perPage));
 <a href="edit.php?id=<?php echo (int) $anggota['id']; ?>" class="btn-edit">Edit</a>
 
 <?php if (($_SESSION['role'] ?? '') === 'admin'): ?>
-<form class="form-hapus" method="post" action="hapus.php">
+<form class="form-hapus" method="post" action="hapus.php" style="display:inline;" onsubmit="return confirm('Yakin ingin menghapus anggota ini?');">
 <?php echo csrf_field(); ?>
 <input type="hidden" name="id" value="<?php echo (int) $anggota['id']; ?>">
 <button type="submit" class="btn-hapus">Hapus</button>
