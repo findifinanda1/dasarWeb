@@ -1,5 +1,6 @@
 <?php
-ini_set('display_errors', '0');
+// Set APP_DEBUG=1 di Env Vars hanya saat mencari error, lalu hapus lagi.
+ini_set('display_errors', getenv('APP_DEBUG') ? '1' : '0');
 ini_set('log_errors', '1');
 error_reporting(E_ALL);
 
@@ -17,7 +18,6 @@ try {
         ]
     );
 } catch (PDOException $e) {
-    // Detail error hanya dicatat di log server, tidak ditampilkan ke pengguna.
     error_log('Koneksi database gagal: ' . $e->getMessage());
     die('Koneksi database gagal. Hubungi administrator.');
 }

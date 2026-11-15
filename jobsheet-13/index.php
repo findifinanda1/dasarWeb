@@ -15,3 +15,44 @@ $totalBuku       = (int) $ringkasan['total_buku'];
 $totalAnggota    = (int) $ringkasan['total_anggota'];
 $peminjamanAktif = (int) $ringkasan['aktif'];
 $keterlambatan   = (int) $ringkasan['telat'];
+
+include __DIR__ . '/includes/header.php';
+
+$flash = $_SESSION['flash'] ?? null;
+unset($_SESSION['flash']);
+?>
+
+<?php if ($flash): ?>
+    <div class="flash flash-<?php echo e($flash['type']); ?>">
+        <?php echo e($flash['pesan']); ?>
+    </div>
+<?php endif; ?>
+
+<section class="card mb-4">
+    <h2>Selamat Datang di SIMPUS-Mini</h2>
+    <p>Sistem Informasi Perpustakaan Mini berbasis Web.</p>
+</section>
+
+<section class="card">
+    <h2>Ringkasan</h2>
+    <div class="stats-grid">
+        <article class="stat-card">
+            <h3>Total Buku</h3>
+            <p class="stat-number"><?php echo $totalBuku; ?></p>
+        </article>
+        <article class="stat-card">
+            <h3>Total Anggota</h3>
+            <p class="stat-number"><?php echo $totalAnggota; ?></p>
+        </article>
+        <article class="stat-card">
+            <h3>Peminjaman Aktif</h3>
+            <p class="stat-number"><?php echo $peminjamanAktif; ?></p>
+        </article>
+        <article class="stat-card">
+            <h3>Keterlambatan</h3>
+            <p class="stat-number"><?php echo $keterlambatan; ?></p>
+        </article>
+    </div>
+</section>
+
+<?php include __DIR__ . '/includes/footer.php'; ?>
