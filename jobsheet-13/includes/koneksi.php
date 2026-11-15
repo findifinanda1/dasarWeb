@@ -8,10 +8,13 @@ $sslmode = getenv('DB_SSLMODE') ?: 'prefer';
 
 try {
     $pdo = new PDO(
-        "pgsql:host={$config['db_host']};port={$config['db_port']};dbname={$config['db_name']};sslmode={$sslmode}",
+        "pgsql:host={$config['db_host']};port={$config['db_port']};dbname={$config['db_name']};sslmode={$sslmode};connect_timeout=5",
         $config['db_user'],
         $config['db_pass'],
-        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_TIMEOUT => 5,
+        ]
     );
 } catch (PDOException $e) {
     // Detail error hanya dicatat di log server, tidak ditampilkan ke pengguna.
